@@ -76,8 +76,7 @@
 
 
 	function pluck(array, property) {
-	    var newArr;
-	    newArr = array.map(function(item) {
+	    var newArr = array.map(function(item) {
 	    
 	        return item[property];
 	  
