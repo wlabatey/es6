@@ -1,4 +1,6 @@
+// Array.prototype.forEach();
 
+// The forEach() method executes a provided function once per array element.
 
 // We declare the variable colours and assign it to an array literal with our colour names as strings.
 var colors = ['red', 'blue', 'green'];
