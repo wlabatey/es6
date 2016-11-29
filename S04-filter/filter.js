@@ -117,3 +117,55 @@
 	console.log(commentsForPost(post, comments));
 
 })();
+
+
+// ------- Coding Challenge:
+
+// Challenging! Implementing 'reject'.
+
+// This is a hard one!  Create a function called 'reject'.  
+// Reject should work in the opposite way of 'filter' - if a function returns 'true', the item 
+// should *not* be included in the new array.  Hint: you can reuse filter.
+
+ 
+(function() {
+
+	function reject(array, iteratorFunction) {
+ 
+	  return array.filter(function(item) {
+
+	  	// This is the best solution. Simply only return those items that 
+	  	// return 'false' from our iteratorFunction.
+
+	      return !iteratorFunction(item);
+	   });
+	}
+
+	// My original working solution is below, which uses two new arrays...
+
+
+	// function reject(array, iteratorFunction) {
+	  
+	//  var failedTest = array.filter(function(item) {
+	//       return iteratorFunction(item);
+	//    });
+	  
+	//   var passedTest = [];
+	  
+	//   array.filter(function(item) {
+	//     failedTest.includes(item) ? false : passedTest.push(item);
+	//    });
+	 
+	//   return passedTest;
+	// }
+
+
+	var numbers = [10, 20, 30];
+  
+	var lessThanFifteen = reject(numbers, function(number) {
+		return number > 15;
+	});
+
+	console.log(lessThanFifteen); // [10]
+
+})();
