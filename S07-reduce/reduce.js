@@ -115,7 +115,119 @@ var numbers = [10, 20, 30];
 	console.log(balancedParens("(()")); // false
 	console.log(balancedParens("()")); // true
 	console.log(balancedParens("(()())")); // true
+
+	console.log("------------------- 3");
  
 })();
 
 
+// -------------------------------------------------------
+
+// Coding exercise 1 - Distance travelled
+
+// Use the reduce helper to find the sum of all the distances travelled. 
+// Assign the result to the variable 'totalDistance'.
+
+(function() {
+
+	var trips = [{ distance: 34 }, { distance: 12 } , { distance: 1 }];
+
+	var totalDistance = trips.reduce(function(previous, trip) {
+    	return trip.distance += previous;
+	}, 0);
+
+
+	console.log(totalDistance);
+
+	console.log("------------------- 4");
+
+})();
+
+
+// Coding exercise 2 - Reducing properties
+
+// Use the 'reduce' helper to create an object that tallies the number of sitting and standing desks.  
+// The object returned should have the form '{ sitting: 3, standing: 2 }'.  
+// The initial value has been provided to you.
+// Hint: Don't forget to return the accumulator object (the first argument to the iterator function)
+
+
+(function() {
+
+	var desks = [
+
+				{ type: 'sitting' },
+				{ type: 'standing' },
+				{ type: 'sitting' },
+				{ type: 'sitting' },
+				{ type: 'standing' }
+
+				];
+
+	var totals = { sitting: 0, standing: 0 };
+
+	var deskTypes = desks.reduce(function(previous, desk) {
+
+		if (desk.type === 'sitting') { console.log("Sitting!"); previous.sitting++; }
+		if (desk.type === 'standing') { console.log("Standing!"); previous.standing++; }
+		return previous;
+		
+	}, { sitting: 0, standing: 0 });
+
+	console.log(deskTypes);
+
+})();
+
+
+// Coding exercise 3 - Hard mode - Custom 'unique' helper
+
+// Write a function called 'unique' that will remove all duplicate values from an array.
+
+// For example, given the following array:
+
+// var numbers = [1, 1, 2, 3, 4, 4];
+
+// Your function should return [1, 2, 3, 4]
+
+(function() {
+
+	var numbers = [1, 1, 2, 3, 4, 4];
+
+	function unique(array) {
+
+		// Create a new blank array that will be returned
+
+		// Check array for number of occurences of each item,
+		// If item occurs more than once, add to the accumulator
+		// If accumulator is greater than 0, do NOT add current item to new array
+
+		// If it occurs more than once, only add it once to new array 
+
+
+		var newArr = [];
+
+		array.map(function(element) {
+
+			if (!newArr.includes(element)) { 
+				newArr.push(element);
+			} 
+		});
+
+		return newArr;
+	}
+
+	var numbers2 = [1,3,5,7,3,4,3,3, "hi", "hi", true, true, {id: 1}, {id: 1}, 3,2,1,0,0,0];
+
+	function unique2(array) {
+		var newArr = [...new Set(array)];		// An interesting solution (without using find/reduce)
+		return newArr;							
+	}											
+
+	console.log(unique(numbers));
+	console.log(unique(numbers2));
+
+	console.log(unique2(numbers));
+	console.log(unique2(numbers2));
+
+
+})();
