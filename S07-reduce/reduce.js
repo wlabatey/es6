@@ -232,3 +232,18 @@ var numbers = [10, 20, 30];
 
 })();
 
+(function() {
+
+// Another solution that works and uses reduce and find.
+
+	function unique(array) {
+    return array.reduce(function(acc, number) {
+        var numberInAcc = acc.find(item => item === number);
+        if (numberInAcc === undefined) {
+            acc.push(number);
+        }
+        return acc;
+    }, []);
+}
+
+})();
