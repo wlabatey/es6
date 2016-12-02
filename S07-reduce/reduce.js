@@ -206,8 +206,8 @@ var numbers = [10, 20, 30];
 
 		var newArr = [];
 
-		array.map(function(element) {
-
+		array.map(function(element) {			// my first solution (doesn't work for objects)
+												// doesn't use reduce / find.
 			if (!newArr.includes(element)) { 
 				newArr.push(element);
 			} 
@@ -220,7 +220,7 @@ var numbers = [10, 20, 30];
 
 	function unique2(array) {
 		var newArr = [...new Set(array)];		// An interesting solution (without using find/reduce)
-		return newArr;							
+		return newArr;							// This uses the rest and Set.	
 	}											
 
 	console.log(unique(numbers));
@@ -231,3 +231,4 @@ var numbers = [10, 20, 30];
 
 
 })();
+
