@@ -112,7 +112,7 @@ console.log(bookShop);
  	}
 
 	const url = "http://fileupload.com";
-	const data = { color : red };
+	const data = { color : "red" };
 
 	saveFile(url, data);
 
