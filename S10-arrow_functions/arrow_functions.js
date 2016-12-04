@@ -1,3 +1,4 @@
+
 // Arrow Functions
 
 // An arrow function expression has a shorter syntax compared to function expressions 
@@ -96,3 +97,30 @@ console.log(add(2, 2));
 
 })();
 
+
+// When to use arrow functions
+
+// Arrow functions fix what was considered a longterm bug of the 'this' keyword in javascript.
+
+// Until arrow functions, every new function defined its own 'this' value, which can
+// be confusing as it is not always what you would expect.
+
+// In ES5, a workaround was to assign the value of this to a variable that could
+// then be referenced to get the correct result, e.g. var self = this;
+
+// With arrow functions, this is no longer needed.
+
+(function() {
+
+	const team = {
+		members: ['Jane', 'Bill'],
+		teamName: 'Super Squad',
+		teamSummary: function() { 
+			return this.members.map(member => 
+				`${member} is on team ${this.teamName}`);
+		}
+	};
+
+	console.log(team.teamSummary());
+
+})();
