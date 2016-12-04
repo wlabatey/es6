@@ -2,9 +2,30 @@
 
 function createBookShop(inventory) {
 	return {
-		inventory: inventory,
+		
 
-		inventoryValue: function() {
+		// ES5..
+
+		// inventory: inventory,
+
+		// ES6:
+
+		// When a key and value have the exact same value, we can just write it once like below.
+
+		inventory,
+
+
+		// ES5..
+
+		// inventoryValue: function() {
+
+		// ES6:
+
+		// We can now add methods just by using the method name, parens and openign curly brace.
+		// This saves us having to use the colon and function keyword.
+
+		inventoryValue() {
+
 			console.log("Test inventory value");
 			
 			// Use .reduce on inventory to iterate through each book:
@@ -23,7 +44,7 @@ function createBookShop(inventory) {
 
 			// Same this as above, but with arrow functions.
 
-		inventoryValueES6: function() {
+		inventoryValueES6() {
 
 			console.log("Inventory value es6");
 
@@ -35,7 +56,7 @@ function createBookShop(inventory) {
 
 		// Return the price of that item
 
-		priceForTitle: function(title) {
+		priceForTitle(title) {
 
 			console.log("Test price for title");
 			
@@ -50,7 +71,7 @@ function createBookShop(inventory) {
 
 		// Same as above, but using arrow functions. Notice again how concise the code is.
 
-		priceForTitleES6: function(title) {
+		priceForTitleES6(title) {
 
 			console.log("Test price for title es6");
 
@@ -60,8 +81,6 @@ function createBookShop(inventory) {
 	};
 }
 
-
-
 const inventory = [
 	{ title: 'Harry Potter', price: 10 },
 	{ title: 'Eloquent Javascript', price: 15}
@@ -70,3 +89,37 @@ const inventory = [
 const bookShop = createBookShop(inventory);
 
 console.log(bookShop);
+
+// --------------------------------------------------------------
+
+// When to use enhanced object literals...
+
+(function() {
+
+// We are going to use jQuery to post data / make an http request to some remote place
+
+// This is just an example to look at the syntax.
+
+	function saveFile(url, data) {
+
+		// Take some data and make a http request with jQuery.
+
+		$.ajax({ 
+			url, 
+			data, 
+			method: 'POST' 
+		});
+ 	}
+
+	const url = "http://fileupload.com";
+	const data = { color : red };
+
+	saveFile(url, data);
+
+})();
+
+
+
+
+
+
