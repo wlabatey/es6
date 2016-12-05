@@ -1,0 +1,1 @@
+// Classes in ES6
