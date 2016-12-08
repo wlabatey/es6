@@ -284,36 +284,36 @@ const line = "-".repeat(50);
 
 // Another solution...
 
-(function() {
+const numbers = [1,2,3];
 
-	const numbers = [1,2,3];
+function double([number, ...rest], arr = []) {
+     
 
-	function double([number, ...rest], arr = []) {
-	     
-		console.log(rest);
+    console.log(`number is: ${number}`);
+	console.log(`rest is: ${rest}`);
+	console.log(`arr is: ${arr}`);
 
-	  if (!number && !rest.length) {
-	    return arr;
-	    }
-	    
-	    return double(rest, [ ...arr, number * 2]);
-	}
+  if (!number && !rest.length) {
+    return arr;
+    }
+    
+    return double(rest, [ ...arr, number * 2]);
+}
 
-	// This one takes an array as the first argument and then uses destructuring to assign
-	// the first item of the array to the parameter 'number' and the rest to an array called 'rest'
+// This one takes an array as the first argument and then uses destructuring to assign
+// the first item of the array to the parameter 'number' and the rest to an array called 'rest'
 
-	// We also have an argument called arr which acts as our accumulator (like in the .reduce array helper)
-	// By default, arr is set to an empty array.
+// We also have an argument called arr which acts as our accumulator (like in the .reduce array helper)
+// By default, arr is set to an empty array.
 
-	// We then check to see if we have a number and rest to work with.
-	// If we don't, then we return arr
+// We then check to see if we have a number and rest to work with.
+// If we don't, then we return arr
 
-	// If (!number && !rest.length) returns false, then we recursively call the double function...
+// If (!number && !rest.length) returns false, then we recursively call the double function...
 
-	// We return the result of calling double on the 'rest' array.
+// We return the result of calling double on the 'rest' array.
 
-	// We take everything accumulated in the current arr and spread them out into arr and then add the current number * 2.
+// We take everything accumulated in the current arr and spread them out into arr and then add the current number * 2.
 
-	console.log(double(numbers));
+console.log(double(numbers));
 
-})();
