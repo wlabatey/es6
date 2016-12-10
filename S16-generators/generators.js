@@ -22,7 +22,16 @@
 		console.log(total);
 	}
 
+	//  ---------------------------------------------------------------------------------------------------------------------------------------
+	//  ---------------------------------------------------------------------------------------------------------------------------------------
+
 })();
+
+
+
+
+
+
 
 
 // Generators let us run some code, return a value and then return to the function and continue executing code.
@@ -74,11 +83,19 @@
 	console.log(gen.next('groceries')); // leaving the store with groceries
 
 	console.log(gen.next('clean clothes')); // leave the laundry place with clean clothes
+
+	//  ---------------------------------------------------------------------------------------------------------------------------------------
+	//  ---------------------------------------------------------------------------------------------------------------------------------------
  
  })();
 
-// Another example with a colors generator function.
 
+
+
+
+
+
+// Another example with a colors generator function.
 
 (function(){
 
@@ -88,12 +105,18 @@
 		yield 'green';
 	}
 
-	// const gen = colors();
-	// console.log(gen.next());
-	// console.log(gen.next());
-	// console.log(gen.next());
+		// const gen = colors();
+		// console.log(gen.next());
+		// console.log(gen.next());
+		// console.log(gen.next());
 
-	// Stephen's "big reveal": generators work perfectly with for...of loops. Below is the example.
+	//  ---------------------------------------------------------------------------------------------------------------------------------------
+	//  ---------------------------------------------------------------------------------------------------------------------------------------
+	//  ------------------------------- Stephen's "big reveal": generators work perfectly with for...of loops.  -------------------------------
+	//  ---------------------------------------------------------------------------------------------------------------------------------------
+	//  ---------------------------------------------------------------------------------------------------------------------------------------
+
+	// Below is the example.
 
 	// Our loop iterates through our generator and pushes each result into our myColors array.
 
@@ -106,7 +129,16 @@
 
 	// Generators can be used to iterate over any data structure we want, which is one of their biggest uses.
 
+	//  ---------------------------------------------------------------------------------------------------------------------------------------
+	//  ---------------------------------------------------------------------------------------------------------------------------------------
+
 })();
+
+
+
+
+
+
 
 // Below is another example, showing where generator functions can be useful.
 
@@ -115,7 +147,6 @@
 // We then create another object representing a testing team, which will be separate from the engineering team.
 
 // We then combine generator functions.
-
 
 (function(){
 
@@ -166,7 +197,15 @@
 
 	console.log("-----------------------------------------------------------------");
 
+	//  ---------------------------------------------------------------------------------------------------------------------------------------
+	//  ---------------------------------------------------------------------------------------------------------------------------------------
+
 })();
+
+
+
+
+
 
 // Next, we take the above code and refactor it to make it more concise.
 
@@ -175,8 +214,6 @@
 // The way it helps is that it allows us to merge our Iterator generators into our two team objects.
 
 // Symbol iterator is a special object in ES6 that teaches objects how to deal with for...of loop.
-
-
 
 (function(){
 
