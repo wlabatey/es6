@@ -18,7 +18,11 @@ let promise = new Promise((resolve, reject) => {
 
 	// resolve(); // .then() functions are executed
 
-	reject(); // .catch() functions are executed.
+	// reject(); // .catch() functions are executed.
+
+	setTimeout(() => {
+		resolve();
+	}, 3000);
 
 });
 
