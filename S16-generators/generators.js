@@ -296,19 +296,10 @@
 	// to iterate over all the child nodes of our current node and yield all of each
 	// child's content too.
 
-		// *[Symbol.iterator]() {
-
-		*ContentIterator(tree) {
-			yield tree.content;
-			for (let child of tree.children) {
-				yield* tree.ContentIterator(child);
-			}
-		}
-
-		*AuthorIterator(tree) {
-			yield tree.author;
-			for (let child of tree.children) {
-				yield* tree.AuthorIterator(child);
+		*[Symbol.iterator]() {
+			yield this.content;
+			for (let child of this.children) {
+				yield* child;
 			}
 		}
 	}
@@ -325,20 +316,15 @@
 
 	const tree = new Comment('Dude1000', 'Great post!', children);
 
-	const content = [];
-	const authors = [];
+	const myTree = [];
 
 	// Here we iterate over our tree and push all the values to our new content & authors array.
 
-	for (let value of tree.ContentIterator(tree)) {
-		content.push(value);
+	for (let value of tree) {
+		myTree.push(value);
 	}
 
-	for (let value of tree.AuthorIterator(tree)) {
-		authors.push(value);
-	}
-
-	console.log(content);
-	console.log(authors);
+	console.log(myTree);
+	console.log(tree);
 
 })();
