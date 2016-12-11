@@ -276,3 +276,69 @@
 
 })(); 
 	
+
+// Next we create a basic tree data structure to show how we can use a generator to iterate through an unknown
+// number of nodes.
+
+(function() {
+
+	// We create a class of Comment, which contains content and children
+
+	class Comment {
+		constructor(author, content, children) {
+			this.author = author;
+			this.content = content;
+			this.children = children;
+		}
+
+	// We use a symbol iterator with this specific syntax to allow a for..of loop to 
+	// yield the current node's content, and then we use another for..of loop
+	// to iterate over all the child nodes of our current node and yield all of each
+	// child's content too.
+
+		// *[Symbol.iterator]() {
+
+		*ContentIterator(tree) {
+			yield tree.content;
+			for (let child of tree.children) {
+				yield* tree.ContentIterator(child);
+			}
+		}
+
+		*AuthorIterator(tree) {
+			yield tree.author;
+			for (let child of tree.children) {
+				yield* tree.AuthorIterator(child);
+			}
+		}
+	}
+
+	// We create an array of child comments
+
+	const children = [
+		new Comment('will', 'good comment', []),
+		new Comment('jaffathecake', 'bad comment', []),
+		new Comment('Annonymous', 'meh', [])
+	];
+
+	// We Create our tree structure, with a top level comment and then use our array of child comments.
+
+	const tree = new Comment('Dude1000', 'Great post!', children);
+
+	const content = [];
+	const authors = [];
+
+	// Here we iterate over our tree and push all the values to our new content & authors array.
+
+	for (let value of tree.ContentIterator(tree)) {
+		content.push(value);
+	}
+
+	for (let value of tree.AuthorIterator(tree)) {
+		authors.push(value);
+	}
+
+	console.log(content);
+	console.log(authors);
+
+})();
