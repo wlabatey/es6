@@ -36,9 +36,11 @@ function letTest() {
 // The value of a constant cannot change through re-assignment, and it can't be redeclared.
 
 // This declaration creates a constant that can be either global or local to the function in which it is declared. 
-// An initializer for a constant is required; that is, you must specify its value in the same statement in which it's declared (which makes sense, given that it can't be changed later).
+// An initializer for a constant is required; that is, you must specify its value in the same statement in which 
+// it's declared (which makes sense, given that it can't be changed later).
 
-// The const declaration creates a read-only reference to a value. It does not mean the value it holds is immutable, just that the variable identifier cannot be reassigned. 
+// The const declaration creates a read-only reference to a value. It does not mean the value it holds is immutable, 
+// just that the variable identifier cannot be reassigned. 
 // For instance, in case the content is an object, this means the object itself can still be altered.
 
 // All the considerations about the "temporal dead zone" that apply to let, also apply to const.
